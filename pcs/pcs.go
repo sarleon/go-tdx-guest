@@ -38,9 +38,10 @@ const (
 )
 
 var (
-	pcsSgxBaseURL = "https://api.trustedservices.intel.com/sgx/certification/v4"
-	pcsTdxBaseURL = "https://api.trustedservices.intel.com/tdx/certification/v4"
-
+	// pcsSgxBaseURL = "https://api.trustedservices.intel.com/sgx/certification/v4"
+	// pcsTdxBaseURL = "https://api.trustedservices.intel.com/tdx/certification/v4"
+	pcsSgxBaseURL = "https://10.37.25.230:8081/sgx/certification/v4"
+	pcsTdxBaseURL = "https://10.37.25.230:8081/tdx/certification/v4"
 	sgxTcbComponentOidPrefix = []int{1, 2, 840, 113741, 1, 13, 1, 2}
 
 	// OidSgxExtension is the x509v3 extension for PCK certificate's SGX Extension.

@@ -21,6 +21,7 @@ import (
 	"io"
 	"net/http"
 	"time"
+	"crypto/tls"
 )
 
 // HTTPSGetter represents the ability to fetch data from the internet from an HTTP URL.
@@ -44,8 +45,12 @@ type SimpleHTTPSGetter struct{}
 // Get uses http.Get to return the HTTPS response body as a byte array.
 func (n *SimpleHTTPSGetter) Get(url string) (map[string][]string, []byte, error) {
 	var header map[string][]string
-
-	resp, err := http.Get(url)
+    client := &http.Client{
+        Transport: &http.Transport{
+            TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+        },
+    }
+	resp, err := client.Get(url)
 	if err != nil {
 		return nil, nil, err
 	} else if resp.StatusCode >= 300 {

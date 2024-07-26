@@ -39,6 +39,7 @@ type LinuxDevice struct {
 // Open opens the TDX guest device from a given path
 func (d *LinuxDevice) Open(path string) error {
 	fd, err := unix.Open(path, unix.O_RDWR|unix.O_SYNC, 0)
+	
 	if err != nil {
 		d.fd = -1
 		return fmt.Errorf("could not open Intel TDX guest device at %q: %v", path, err)
@@ -78,6 +79,7 @@ func (d *LinuxDevice) Ioctl(command uintptr, req any) (uintptr, error) {
 	if d.fd == -1 {
 		return 0, fmt.Errorf("intel TDX Guest Device is not open")
 	}
+	
 	switch sreq := req.(type) {
 	case *labi.TdxQuoteReq:
 		abi := sreq.ABI()

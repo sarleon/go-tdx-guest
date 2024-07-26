@@ -407,6 +407,8 @@ func main() {
 	}
 
 	logger.V(1).Info("Verifying the TDX Quote from input")
+	fmt.Println(quote)
+	fmt.Println(sopts)
 	if err := verify.TdxQuote(quote, sopts); err != nil {
 		// Make the exit code more helpful when there are network errors
 		// that affected the result.

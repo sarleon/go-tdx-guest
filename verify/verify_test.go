@@ -21,6 +21,7 @@ import (
 	"reflect"
 	"testing"
 	"time"
+	"fmt"
 
 	"github.com/google/go-tdx-guest/abi"
 	"github.com/google/go-tdx-guest/pcs"
@@ -282,6 +283,50 @@ func TestVerifyQuoteV4(t *testing.T) {
 	if err := verifyQuote(quote, options); err != nil {
 		t.Error(err)
 	}
+}
+
+
+func TestVerifyQuoteV4WithCollateral(t *testing.T) {
+	anyQuote, err := abi.QuoteToProto(testdata.RawQuote)
+	if err != nil {
+		t.Fatal(err)
+	}
+	quote, ok := anyQuote.(*pb.QuoteV4)
+	if !ok {
+		t.Fatal("Quote is not a QuoteV4")
+	}
+	pckChain, err := extractChainFromQuote(anyQuote)
+	if err != nil {
+		t.Fatal(err)
+	}
+	options := &Options{CheckRevocations: false, GetCollateral: true, chain: pckChain, Now: currentTime}
+	if err := verifyQuote(quote, options); err != nil {
+		t.Error(err)
+	}
+}
+
+func BenchmarkVerifyQuoteV4(b *testing.B) {
+	anyQuote, err := abi.QuoteToProto(testdata.RawQuote)
+	if err != nil {
+		b.Fatal(err)
+	}
+	quote, ok := anyQuote.(*pb.QuoteV4)
+	if !ok {
+		b.Fatal("Quote is not a QuoteV4")
+	}
+	pckChain, err := extractChainFromQuote(anyQuote)
+	if err != nil {
+		b.Fatal(err)
+	}
+	options := &Options{CheckRevocations: false, GetCollateral: false, chain: pckChain, Now: currentTime}
+	b.ResetTimer()
+	fmt.Printf("testing round: %d\n", b.N)
+	for i := 0; i < b.N; i++ {
+		if err := verifyQuote(quote, options); err != nil {
+			b.Error(err)
+		}
+	}
+
 }
 
 func TestNegativeVerification(t *testing.T) {
