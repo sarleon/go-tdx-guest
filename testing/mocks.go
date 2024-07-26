@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	labi "github.com/google/go-tdx-guest/client/linuxabi"
+	labi "github.com/sarleon/go-tdx-guest/client/linuxabi"
 )
 
 // GetReportResponse represents a mocked response to a command request.

@@ -20,8 +20,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-tdx-guest/abi"
-	test "github.com/google/go-tdx-guest/testing"
+	"github.com/sarleon/go-tdx-guest/abi"
+	test "github.com/sarleon/go-tdx-guest/testing"
 	"google.golang.org/protobuf/testing/protocmp"
 )
 

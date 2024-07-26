@@ -32,14 +32,15 @@ import (
 	"net/url"
 	"os"
 	"reflect"
-	"time"
 	"strings"
-	"github.com/google/go-tdx-guest/abi"
-	"github.com/google/go-tdx-guest/pcs"
-	ccpb "github.com/google/go-tdx-guest/proto/checkconfig"
-	pb "github.com/google/go-tdx-guest/proto/tdx"
-	"github.com/google/go-tdx-guest/verify/trust"
+	"time"
+
 	"github.com/google/logger"
+	"github.com/sarleon/go-tdx-guest/abi"
+	"github.com/sarleon/go-tdx-guest/pcs"
+	ccpb "github.com/sarleon/go-tdx-guest/proto/checkconfig"
+	pb "github.com/sarleon/go-tdx-guest/proto/tdx"
+	"github.com/sarleon/go-tdx-guest/verify/trust"
 	"go.uber.org/multierr"
 )
 

@@ -17,18 +17,18 @@ package verify
 import (
 	"crypto/x509"
 	"encoding/hex"
+	"fmt"
 	"os"
 	"reflect"
 	"testing"
 	"time"
-	"fmt"
 
-	"github.com/google/go-tdx-guest/abi"
-	"github.com/google/go-tdx-guest/pcs"
-	pb "github.com/google/go-tdx-guest/proto/tdx"
-	testcases "github.com/google/go-tdx-guest/testing"
-	"github.com/google/go-tdx-guest/testing/testdata"
 	"github.com/google/logger"
+	"github.com/sarleon/go-tdx-guest/abi"
+	"github.com/sarleon/go-tdx-guest/pcs"
+	pb "github.com/sarleon/go-tdx-guest/proto/tdx"
+	testcases "github.com/sarleon/go-tdx-guest/testing"
+	"github.com/sarleon/go-tdx-guest/testing/testdata"
 )
 
 var (
@@ -284,7 +284,6 @@ func TestVerifyQuoteV4(t *testing.T) {
 		t.Error(err)
 	}
 }
-
 
 func TestVerifyQuoteV4WithCollateral(t *testing.T) {
 	anyQuote, err := abi.QuoteToProto(testdata.RawQuote)

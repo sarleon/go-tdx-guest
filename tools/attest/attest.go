@@ -25,10 +25,10 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/google/go-tdx-guest/client"
-	labi "github.com/google/go-tdx-guest/client/linuxabi"
-	pb "github.com/google/go-tdx-guest/proto/tdx"
 	"github.com/google/logger"
+	"github.com/sarleon/go-tdx-guest/client"
+	labi "github.com/sarleon/go-tdx-guest/client/linuxabi"
+	pb "github.com/sarleon/go-tdx-guest/proto/tdx"
 	"google.golang.org/protobuf/encoding/prototext"
 )
 

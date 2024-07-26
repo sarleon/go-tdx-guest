@@ -18,8 +18,8 @@ import (
 	"bytes"
 	"testing"
 
-	pb "github.com/google/go-tdx-guest/proto/tdx"
-	test "github.com/google/go-tdx-guest/testing/testdata"
+	pb "github.com/sarleon/go-tdx-guest/proto/tdx"
+	test "github.com/sarleon/go-tdx-guest/testing/testdata"
 )
 
 func TestQuoteToProto(t *testing.T) {

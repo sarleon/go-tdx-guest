@@ -18,11 +18,11 @@ import (
 	"strings"
 	"testing"
 
-	pb "github.com/google/go-tdx-guest/proto/tdx"
-	vr "github.com/google/go-tdx-guest/verify"
+	pb "github.com/sarleon/go-tdx-guest/proto/tdx"
+	vr "github.com/sarleon/go-tdx-guest/verify"
 
-	"github.com/google/go-tdx-guest/abi"
-	"github.com/google/go-tdx-guest/testing/testdata"
+	"github.com/sarleon/go-tdx-guest/abi"
+	"github.com/sarleon/go-tdx-guest/testing/testdata"
 )
 
 func convert(a []byte, x byte) []byte {

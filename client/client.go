@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/google/go-tdx-guest/abi"
-	labi "github.com/google/go-tdx-guest/client/linuxabi"
 	"github.com/google/logger"
+	"github.com/sarleon/go-tdx-guest/abi"
+	labi "github.com/sarleon/go-tdx-guest/client/linuxabi"
 )
 
 var tdxGuestPath = flag.String("tdx_guest_device_path", "default",
